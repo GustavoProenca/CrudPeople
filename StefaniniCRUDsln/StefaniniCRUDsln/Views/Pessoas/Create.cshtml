@@ -1,0 +1,47 @@
+﻿@model StefaniniCRUDsln.Models.Pessoa
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Cadastro</h1>
+
+<h4>Pessoa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cpf" class="control-label"></label>
+                <input asp-for="Cpf" class="form-control" />
+                <span asp-validation-for="Cpf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Id_Cidade" class="control-label"></label>
+                <select asp-for="Id_Cidade" class ="form-control" asp-items="ViewBag.Id_Cidade"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Idade" class="control-label"></label>
+                <input asp-for="Idade" class="form-control" />
+                <span asp-validation-for="Idade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastro" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar a lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
